@@ -1,0 +1,15 @@
+/** connect  DataBase
+// migration
+//** logic Controller  =>(crud operations )
+// DB
+// elequant model
+
+//** run project => php artisan serve
+//* stop run => ctrl+c
+
+/**** Controller (https://laravel.com/docs/11.x/controllers#main-content)
+
+==> php artisan make:controller  ControllerName
+
+
+// task => apply methods => show all data, show student data (id) ,delete=> student data
