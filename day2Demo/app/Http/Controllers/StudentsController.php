@@ -53,4 +53,54 @@ class StudentsController extends Controller
         $student->delete();
         return view('students');
     }
+
+    function create()
+    {
+        return view('create');
+    }
+
+    function store()
+    {
+        // dump($_POST);
+        dd(request()->all());
+       $student=new Student();
+       $requestDate=request()->all();
+    //    dd($requestDate);
+    // "name" => "ayat adel"
+    // "email" => "ayaatadel128@gmail.com"
+    // "image" => "jj.png"
+    // "address" => "Cairo-menofia"
+    // "age" => "25"
+    // "grade" => "100"
+    // "gender" => "female"
+
+    $student->name=$requestDate['name'];
+    $student->email=$requestDate['email'];
+    $student->image=$requestDate['image'];
+    $student->address=$requestDate['address'];
+    $student->age=$requestDate['age'];
+    $student->gender=$requestDate['gender'];
+    $student->grade=$requestDate['grade'];
+    // dump($requestDate);
+    // dd($student);
+    $student->save();
+    return to_route('students.index');
+
+    }
+
+
+    function edit($id)
+    {
+        $student=Student::findOrFail($id);
+        return view('edit',compact('student'));
+    }
+
+    function update($id)
+    {
+        // dd(request()->all());
+        $student=Student::findOrFail($id);
+        $updatedData=request()->all();
+        $student->update( $updatedData);
+        return to_route('students.index');
+    }
 }

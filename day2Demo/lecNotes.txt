@@ -1,0 +1,34 @@
+factory=>https://laravel.com/docs/11.x/eloquent-factories#main-content
+
+
+
+seeder=>https://laravel.com/docs/11.x/seeding#writing-seeders
+
+
+php artisan make:factory TrackFactory --model=Track
+
+====================
+migration , seeder , factory , controller (resource), model
+
+php artisan make:model Course --all
+
+php artisan make:model test -c -m -r -f -s
+-c => controller
+-r => resource
+-m=> migration
+-f=> factory
+-s=>seeder
+
+
+==== create controller with all functions (resource controller)and use model
+php artisan make:controller TrackController --model=Track
+
+
+==
+task complete cruds of Track
+store image in students and Track
+== handle delete to delete image from file
+handle => validation on user input  and handel error message
+validation =>https://laravel.com/docs/11.x/validation#quick-creating-the-controller
+
+== bonous => you can chage message error that appear to user

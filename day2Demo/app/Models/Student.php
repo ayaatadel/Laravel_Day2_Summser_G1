@@ -9,5 +9,7 @@ class Student extends Model
 {
     use HasFactory;
     // protected $table="iti_student";  // table name with another name
+    protected $fillable=['name','email','address','gender','grade','image','age'];
+    // protected $guarded=[''];// data that you don't updated on it
 
 }

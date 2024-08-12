@@ -12,43 +12,42 @@
 
 <body>
 
-<a href="{{route('students.create')}}"><button class="btn btn-success">Create Student</button></a>
+<a href="{{route('tracks.create')}}"><button class="btn btn-success">Create Track</button></a>
     <fieldset>
-        <legend>Students Data</legend>
+        <legend>Tracks Data</legend>
         <table class="table w-75 m-auto table-bordered mt-5">
             <thead>
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">name</th>
-                    <th scope="col">email</th>
-                    <th scope="col">address</th>
-                    <th scope="col">gender</th>
+                    <th scope="col">logo</th>
+                    <th scope="col">About</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
 
-                {{-- @dump($students) --}}
-                @foreach ($students as $student)
+                {{-- @dump($tracks) --}}
+
                     <tr>
-                        {{-- {{$student["id"]}} --}}
-                        <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->email }}</td>
-                        <td>{{ $student->address }}</td>
-                        <td>{{ $student->gender }}</td>
+                        {{-- {{$track["id"]}} --}}
+                        <td>{{ $track->id }}</td>
+                        <td>{{ $track->name }}</td>
+                        <td><img src="{{ $track->logo }}" alt="" class="w-50 h-50 bordered-circled"></td>
+                        <td>{{ $track->about }}</td>
+
                         <td>
-                            <a class="btn btn-info" href="{{ route('students.show', $student->id) }}">Show</a>
-                            <a class="btn btn-warning" href="{{ route('students.edit', $student->id) }}">Edit</a>
-                            <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                            <a class="btn btn-info" href="{{ url()->previous()}}">Back</a>
+                            {{-- <a class="btn btn-warning" href="{{ route('tracks.edit', $track->id) }}">Edit</a>
+                            <form action="{{ route('tracks.destroy', $track->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                            </form> --}}
 
                         </td>
                     </tr>
-                @endforeach
+
 
 
             </tbody>
