@@ -32,3 +32,65 @@ handle => validation on user input  and handel error message
 validation =>https://laravel.com/docs/11.x/validation#quick-creating-the-controller
 
 == bonous => you can chage message error that appear to user
+
+
+
+==== realation
+   ==> realation brtween two tables
+   ==> ratio =>  one to one =>maping , one to many=> primary key of one put it in table of many , many to many
+   ==> degree of relation
+      ==> unary (table and itself), binary(relation between two tabled) , ternary(realtion between more than two tables)
+    , cardinality
+
+====> database => model , migration
+       => relation deal with model migration
+       ==> migration => create table with columns
+       ==> create column (foreign key => table )
+       === track , student
+       student can be only in one track  => track_id in student table
+       track can have many students
+
+
+
+       == migration
+       https://laravel.com/docs/11.x/migrations#foreign-key-constraints
+
+
+       model => relation
+       https://laravel.com/docs/11.x/eloquent-relationships#one-to-one-polymorphic-relations
+       https://laravel.com/docs/11.x/eloquent-relationships#main-content
+
+
+
+=== api
+application program interface
+== > transfer databas not view(blade)
+== mobile developer (flutter)=> data , laravel
+
+// api =laravel =>api => routes
+===> to install api in laravel 11
+// php artisan install:api
+
+===> data => route , logic (controller)
+route=> route:apiResource
+http://127.0.0.1:8000/api/hi(url)
+
+controller=>
+php artisan make:controller Api/StudentController --api --resource
+// create controller with methods and model
+ php artisan make:controller Api/StudentController --api --model=Student
+
+ php artisan route:list
+
+  GET|HEAD        / .........................................................
+  GET|HEAD        api/hi ....................................................
+  GET|HEAD        api/students . students.index › Api\StudentController@index
+  POST            api/students . students.store › Api\StudentController@store
+  GET|HEAD        api/students/{student} students.show › Api\StudentControll…
+  PUT|PATCH       api/students/{student} students.update › Api\StudentContro…
+  DELETE          api/students/{student} students.destroy › Api\StudentContr…
+
+
+  // postman
+  https://www.postman.com/downloads/
+  

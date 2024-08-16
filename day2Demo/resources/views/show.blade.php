@@ -12,7 +12,7 @@
 
 <body>
 
-
+{{-- @dd($student->track) --}}
         <fieldset>
             <legend>Students Data</legend>
             <table class="table w-75 m-auto table-bordered mt-5">
@@ -25,6 +25,8 @@
                         <th scope="col">image</th>
                         <th scope="col">gender</th>
                         <th scope="col">age</th>
+                        <th scope="col">track Name</th>
+
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -38,6 +40,7 @@
                             <td>{{ $student->image }}</td>
                             <td>{{ $student->gender }}</td>
                             <td>{{ $student->age }}</td>
+                            <td>{{ $student->track->name }}</td>
                             <td>
                                 <a class="btn btn-info" href={{route('students.index')}} >Back</a>
                             </td>

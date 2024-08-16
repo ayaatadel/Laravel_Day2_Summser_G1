@@ -34,8 +34,19 @@ class TrackController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request);
+        // dd($request);
+        $request->validate([
+            'name'=>'required|unique:tracks|min:2',
+            "about"=>'required|max:30|min:5'
+        ],[
+            'name.unique'=>'this track name already exist',
+            'name.min'=>'track name must be more than or qeual 2 charactres',
+            "about.unique"=>"this track about already exist"
+        ]);
 
+        $requestData=$request->all();
+        $track=Track::create($requestData);
+        return to_route('tracks.show',compact('track'));
         // file 'logo'
         // if($reques->hasFile('logo'))
     }

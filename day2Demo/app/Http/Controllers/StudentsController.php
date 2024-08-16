@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Track;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -56,15 +57,15 @@ class StudentsController extends Controller
 
     function create()
     {
-        return view('create');
+        $tracks=Track::all();
+        return view('create',compact('tracks'));
     }
 
-    function store()
+    function store(Request $request)
     {
         // dump($_POST);
-        dd(request()->all());
-       $student=new Student();
-       $requestDate=request()->all();
+        // dd(request()->all());
+    //    $student=new Student();
     //    dd($requestDate);
     // "name" => "ayat adel"
     // "email" => "ayaatadel128@gmail.com"
@@ -74,17 +75,20 @@ class StudentsController extends Controller
     // "grade" => "100"
     // "gender" => "female"
 
-    $student->name=$requestDate['name'];
-    $student->email=$requestDate['email'];
-    $student->image=$requestDate['image'];
-    $student->address=$requestDate['address'];
-    $student->age=$requestDate['age'];
-    $student->gender=$requestDate['gender'];
-    $student->grade=$requestDate['grade'];
+    // $student->name=$requestDate['name'];
+    // $student->email=$requestDate['email'];
+    // $student->image=$requestDate['image'];
+    // $student->address=$requestDate['address'];
+    // $student->age=$requestDate['age'];
+    // $student->gender=$requestDate['gender'];
+    // $student->grade=$requestDate['grade'];
     // dump($requestDate);
     // dd($student);
+    $requestData=request()->all();
+
+    $student=Student::create($requestData);
     $student->save();
-    return to_route('students.index');
+    return to_route('students.view',$student->id);
 
     }
 

@@ -9,7 +9,15 @@ class Student extends Model
 {
     use HasFactory;
     // protected $table="iti_student";  // table name with another name
-    protected $fillable=['name','email','address','gender','grade','image','age'];
-    // protected $guarded=[''];// data that you don't updated on it
+    protected $fillable=['name','grade','image','address','email','gender','track_id'];
+
+    // one to many
+
+    function track()
+    {
+        return $this->belongsTo(Track::class);
+        // return $this->belongsTo(Track::class,'track_id','myId');
+    }
+
 
 }
